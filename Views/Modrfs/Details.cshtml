@@ -1,0 +1,72 @@
+﻿@model ARTF2.Models.Modrf
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Modrf</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameAcuDoc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameAcuDoc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Acumod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Acumod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fechamod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fechamod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Desmod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Desmod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Obsmod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Obsmod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameFichaTecDoc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameFichaTecDoc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fichatecmod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fichatecmod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Clavemod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Clavemod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumacuofsolNavigatorNavigation.Numacuofsol)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Idmod">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

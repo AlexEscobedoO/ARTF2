@@ -1,0 +1,42 @@
+﻿@model ARTF2.Models.Insrf
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Insrf</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Obsins)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Obsins)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecapins)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecapins)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Homoclaveins)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Homoclaveins)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumacuofsolNavigatorNavigation.Numacuofsol)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Idins">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

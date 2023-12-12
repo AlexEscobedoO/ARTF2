@@ -1,0 +1,89 @@
+﻿@model ARTF2.Models.Rectrf
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Rectrf</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Idrect" />
+            <div class="form-group">
+                <label asp-for="NumacuofsolNavigator" class="control-label"></label>
+                <select asp-for="NumacuofsolNavigator" class="form-control" asp-items="ViewBag.NumacuofsolNavigator"></select>
+                <span asp-validation-for="NumacuofsolNavigator" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameFichatecDoc" class="control-label"></label>
+                <input asp-for="NameFichatecDoc" class="form-control" />
+                <span asp-validation-for="NameFichatecDoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fichatecrect" class="control-label"></label>
+                <input asp-for="Fichatecrect" class="form-control" />
+                <span asp-validation-for="Fichatecrect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Numdocemp" class="control-label"></label>
+                <input asp-for="Numdocemp" class="form-control" />
+                <span asp-validation-for="Numdocemp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fechadocsol" class="control-label"></label>
+                <input asp-for="Fechadocsol" class="form-control" />
+                <span asp-validation-for="Fechadocsol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecharect" class="control-label"></label>
+                <input asp-for="Fecharect" class="form-control" />
+                <span asp-validation-for="Fecharect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desrect" class="control-label"></label>
+                <input asp-for="Desrect" class="form-control" />
+                <span asp-validation-for="Desrect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Obsrect" class="control-label"></label>
+                <input asp-for="Obsrect" class="form-control" />
+                <span asp-validation-for="Obsrect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameAcuDoc" class="control-label"></label>
+                <input asp-for="NameAcuDoc" class="form-control" />
+                <span asp-validation-for="NameAcuDoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Acurect" class="control-label"></label>
+                <input asp-for="Acurect" class="form-control" />
+                <span asp-validation-for="Acurect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Homoclaverect" class="control-label"></label>
+                <input asp-for="Homoclaverect" class="form-control" />
+                <span asp-validation-for="Homoclaverect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fechamodrect" class="control-label"></label>
+                <input asp-for="Fechamodrect" class="form-control" />
+                <span asp-validation-for="Fechamodrect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,231 @@
+﻿@model ARTF2.Models.Permisomod
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Permisomod</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Numper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Numper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Numofper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Numofper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fechaper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fechaper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Obper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Obper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipoper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tipoper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Lugaper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Lugaper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estaper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estaper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Munper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Munper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Obrper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Obrper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vigenper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vigenper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Condper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Condper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Noautpro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Noautpro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Areares)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Areares)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Areapro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Areapro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fechaappro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fechaappro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Proejeper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Proejeper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Natgar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Natgar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Montgar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Montgar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tergar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tergar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cauter)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cauter)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Replegal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Replegal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Instnot)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Instnot)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Obsper)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Obsper)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rfmobs)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rfmobs)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipoasientomod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tipoasientomod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nummod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nummod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Desmod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Desmod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pdfmod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pdfmod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Consmod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Consmod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Numofimod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Numofimod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fechaofimod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fechaofimod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Idempresa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Idempresa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Domicilio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Domicilio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Homoins)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Homoins)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fechainsc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fechainsc)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Idpermod" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

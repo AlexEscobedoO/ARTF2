@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ARTF2.Models.Empresa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rsempre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dirempre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoempreIdNavigationNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rsempre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dirempre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoempreIdNavigationNavigation.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idempre">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idempre">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idempre">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

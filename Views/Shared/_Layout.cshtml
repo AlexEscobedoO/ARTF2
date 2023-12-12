@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ARTF2</title>
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+    <style>
+        .container-body {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-inverse sub-navbar navbar-fixed-top">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ARTF</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#subenlaces">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="subenlaces">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Concesiones y Permisos<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Permisoins" asp-action="Index">Inscripción de permiso</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Permisomods" asp-action="Index">Modificación de permiso</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Permrects" asp-action="Index">Rectificación de permiso</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Permicans" asp-action="Index">Cancelación de permiso</a></li>
+                        </ul>
+                        </li> 
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipo Ferroviario<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Solrfs" asp-action="Index">Solicitud</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Insrfs" asp-action="Index">Inscripcion</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Rectrfs" asp-action="Index">Rectificacion</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Modrfs" asp-action="Index">Modificacion</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Canrfs" asp-action="Index">Cancelacion</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Equiunis" asp-action="Index">Equipo</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Catalogos <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Empresas" asp-action="Index">Empresas</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Fabricantes" asp-action="Index">Fabricantes</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Modeloes" asp-action="Index">Modelos</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="CombustibleTypes" asp-action="Index">Tipos de combustible</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="EmpreTypes" asp-action="Index">Tipos de Empresas</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Marcas" asp-action="Index">Marcas</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Monedums" asp-action="Index">Monedas</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="RegimenJuridicoes" asp-action="Index">Regimen Juridico</a></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Usoequis" asp-action="Index">Uso de equipo</a></li>
+                            </ul>
+                        </li>
+                        @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+                        </li>*@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - ARTF2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

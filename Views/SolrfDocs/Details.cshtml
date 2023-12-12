@@ -1,0 +1,36 @@
+﻿@model ARTF2.Models.SolrfDoc
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SolrfDoc</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameDoc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameDoc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Docsol)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Docsol)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumacuofsolNavigatorNavigation.Numacuofsol)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Iddoc">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,131 @@
+﻿@model ARTF2.Models.Equiuni
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Equiuni</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumacuofsolNavigator" class="control-label"></label>
+                <select asp-for="NumacuofsolNavigator" class ="form-control" asp-items="ViewBag.NumacuofsolNavigator"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModaequiIdNavigation" class="control-label"></label>
+                <select asp-for="ModaequiIdNavigation" class ="form-control" asp-items="ViewBag.ModaequiIdNavigation"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipequiIdNavigation" class="control-label"></label>
+                <select asp-for="TipequiIdNavigation" class ="form-control" asp-items="ViewBag.TipequiIdNavigation"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CombuequiIdNavigation" class="control-label"></label>
+                <select asp-for="CombuequiIdNavigation" class ="form-control" asp-items="ViewBag.CombuequiIdNavigation"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nserie" class="control-label"></label>
+                <input asp-for="Nserie" class="form-control" />
+                <span asp-validation-for="Nserie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Matricula" class="control-label"></label>
+                <input asp-for="Matricula" class="form-control" />
+                <span asp-validation-for="Matricula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegiequiIdNavigation" class="control-label"></label>
+                <select asp-for="RegiequiIdNavigation" class ="form-control" asp-items="ViewBag.RegiequiIdNavigation"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Graequi" class="control-label"></label>
+                <input asp-for="Graequi" class="form-control" />
+                <span asp-validation-for="Graequi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsoequiIdNavigation" class="control-label"></label>
+                <select asp-for="UsoequiIdNavigation" class ="form-control" asp-items="ViewBag.UsoequiIdNavigation"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fcons" class="control-label"></label>
+                <input asp-for="Fcons" class="form-control" />
+                <span asp-validation-for="Fcons" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nofact" class="control-label"></label>
+                <input asp-for="Nofact" class="form-control" />
+                <span asp-validation-for="Nofact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tcontra" class="control-label"></label>
+                <input asp-for="Tcontra" class="form-control" />
+                <span asp-validation-for="Tcontra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fcontra" class="control-label"></label>
+                <input asp-for="Fcontra" class="form-control" />
+                <span asp-validation-for="Fcontra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vcontra" class="control-label"></label>
+                <input asp-for="Vcontra" class="form-control" />
+                <span asp-validation-for="Vcontra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mrent" class="control-label"></label>
+                <input asp-for="Mrent" class="form-control" />
+                <span asp-validation-for="Mrent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonrentIdNavigation" class="control-label"></label>
+                <select asp-for="MonrentIdNavigation" class ="form-control" asp-items="ViewBag.MonrentIdNavigation"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Obsarre" class="control-label"></label>
+                <input asp-for="Obsarre" class="form-control" />
+                <span asp-validation-for="Obsarre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Obsgra" class="control-label"></label>
+                <input asp-for="Obsgra" class="form-control" />
+                <span asp-validation-for="Obsgra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Obsequi" class="control-label"></label>
+                <input asp-for="Obsequi" class="form-control" />
+                <span asp-validation-for="Obsequi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameFichaDoc" class="control-label"></label>
+                <input asp-for="NameFichaDoc" class="form-control" />
+                <span asp-validation-for="NameFichaDoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fichaequi" class="control-label"></label>
+                <input asp-for="Fichaequi" class="form-control" />
+                <span asp-validation-for="Fichaequi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecharequi" class="control-label"></label>
+                <input asp-for="Fecharequi" class="form-control" />
+                <span asp-validation-for="Fecharequi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

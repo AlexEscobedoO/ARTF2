@@ -1,0 +1,215 @@
+﻿@model IEnumerable<ARTF2.Models.Permican>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Numper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numofper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechaper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Obper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipoper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lugaper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estaper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Munper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Obrper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vigenper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Condper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noautpro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Areares)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Areapro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechaappro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proejeper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Natgar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Montgar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tergar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cauter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Replegal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instnot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Obsper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rfmobservaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipoasientocan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ultimoasientoregistrado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descancelacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pdfcancelacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Justcancelacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numoficiocancelacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechaoficiocancelacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numofper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechaper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipoper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lugaper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estaper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Munper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obrper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vigenper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Noautpro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Areares)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Areapro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechaappro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proejeper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Natgar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Montgar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tergar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cauter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Replegal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instnot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obsper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rfmobservaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipoasientocan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ultimoasientoregistrado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descancelacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pdfcancelacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Justcancelacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numoficiocancelacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechaoficiocancelacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idper">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idper">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idper">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

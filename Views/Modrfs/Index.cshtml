@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ARTF2.Models.Modrf>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameAcuDoc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acumod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechamod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desmod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Obsmod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameFichaTecDoc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fichatecmod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clavemod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameAcuDoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acumod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechamod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desmod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obsmod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameFichaTecDoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fichatecmod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clavemod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumacuofsolNavigatorNavigation.Numacuofsol)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idmod">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idmod">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idmod">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

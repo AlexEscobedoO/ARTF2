@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ARTF2.Models.SolrfDoc>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameDoc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Docsol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameDoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Docsol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumacuofsolNavigatorNavigation.Numacuofsol)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Iddoc">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Iddoc">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Iddoc">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

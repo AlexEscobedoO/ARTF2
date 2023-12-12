@@ -1,0 +1,44 @@
+﻿@model ARTF2.Models.Empresa
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Empresa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Idempre" />
+            <div class="form-group">
+                <label asp-for="Rsempre" class="control-label"></label>
+                <input asp-for="Rsempre" class="form-control" />
+                <span asp-validation-for="Rsempre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dirempre" class="control-label"></label>
+                <input asp-for="Dirempre" class="form-control" />
+                <span asp-validation-for="Dirempre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoempreIdNavigation" class="control-label"></label>
+                <select asp-for="TipoempreIdNavigation" class="form-control" asp-items="ViewBag.TipoempreIdNavigation"></select>
+                <span asp-validation-for="TipoempreIdNavigation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

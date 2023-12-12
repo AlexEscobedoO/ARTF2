@@ -1,0 +1,69 @@
+﻿@model ARTF2.Models.Canrf
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Canrf</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Idcan" />
+            <div class="form-group">
+                <label asp-for="NumacuofsolNavigator" class="control-label"></label>
+                <select asp-for="NumacuofsolNavigator" class="form-control" asp-items="ViewBag.NumacuofsolNavigator"></select>
+                <span asp-validation-for="NumacuofsolNavigator" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fechaofcan" class="control-label"></label>
+                <input asp-for="Fechaofcan" class="form-control" />
+                <span asp-validation-for="Fechaofcan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Juscan" class="control-label"></label>
+                <input asp-for="Juscan" class="form-control" />
+                <span asp-validation-for="Juscan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Obscan" class="control-label"></label>
+                <input asp-for="Obscan" class="form-control" />
+                <span asp-validation-for="Obscan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameFichaDoc" class="control-label"></label>
+                <input asp-for="NameFichaDoc" class="form-control" />
+                <span asp-validation-for="NameFichaDoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fichacan" class="control-label"></label>
+                <input asp-for="Fichacan" class="form-control" />
+                <span asp-validation-for="Fichacan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Homoclavecan" class="control-label"></label>
+                <input asp-for="Homoclavecan" class="form-control" />
+                <span asp-validation-for="Homoclavecan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fechacan" class="control-label"></label>
+                <input asp-for="Fechacan" class="form-control" />
+                <span asp-validation-for="Fechacan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

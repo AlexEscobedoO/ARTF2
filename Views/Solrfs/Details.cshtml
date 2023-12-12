@@ -1,0 +1,30 @@
+﻿@model ARTF2.Models.Solrf
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Solrf</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Obssol)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Obssol)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecapsol)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecapsol)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Numacuofsol">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

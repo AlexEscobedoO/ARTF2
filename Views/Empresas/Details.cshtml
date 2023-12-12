@@ -1,0 +1,36 @@
+﻿@model ARTF2.Models.Empresa
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Empresa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rsempre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rsempre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dirempre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dirempre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoempreIdNavigationNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipoempreIdNavigationNavigation.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Idempre">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

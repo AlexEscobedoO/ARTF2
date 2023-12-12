@@ -7,7 +7,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Modrf</h4>
+    <h4>Detalles de Modificación</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -15,49 +15,65 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NameAcuDoc)
-        </dd>
+        </dd
+     </dl>
+     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Acumod)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Acumod)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Fechamod)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Fechamod)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Desmod)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Desmod)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Obsmod)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Obsmod)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NameFichaTecDoc)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NameFichaTecDoc)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Fichatecmod)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Fichatecmod)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Clavemod)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Clavemod)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
         </dt>
@@ -67,6 +83,5 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Idmod">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-info">Volver a la lista</a>
 </div>

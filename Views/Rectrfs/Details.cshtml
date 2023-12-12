@@ -7,7 +7,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Rectrf</h4>
+    <h4>Detalles de Rectificación</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -16,66 +16,88 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NameFichatecDoc)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Fichatecrect)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Fichatecrect)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Numdocemp)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Numdocemp)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Fechadocsol)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Fechadocsol)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Fecharect)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Fecharect)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Desrect)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Desrect)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Obsrect)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Obsrect)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NameAcuDoc)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NameAcuDoc)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Acurect)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Acurect)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Homoclaverect)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Homoclaverect)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Fechamodrect)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Fechamodrect)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
         </dt>
@@ -85,6 +107,5 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Idrect">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-info">Volver a la lista</a>
 </div>

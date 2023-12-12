@@ -7,71 +7,76 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Registro Nuevo</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Fechaofcan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Juscan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Obscan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NameFichaDoc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fichacan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Homoclavecan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fechacan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fechaofcan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Juscan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Obscan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameFichaDoc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fichacan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Homoclavecan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fechacan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumacuofsolNavigatorNavigation.Numacuofsol)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Idcan">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Idcan">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Idcan">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div style="height: 500px; overflow-y: auto;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fechaofcan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Juscan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Obscan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameFichaDoc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fichacan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Homoclavecan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fechacan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fechaofcan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Juscan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Obscan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameFichaDoc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fichacan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Homoclavecan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fechacan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumacuofsolNavigatorNavigation.Numacuofsol)
+                    </td>
+                    <td>
+                        <div class="btn-group-vertical">
+                            <a asp-action="Edit" class="btn btn-default btn-sm" asp-route-id="@item.Idcan">Editar</a>
+                            <a asp-action="Details" class="btn btn-danger btn-sm" asp-route-id="@item.Idcan">Detalles</a>
+                            <a asp-action="Delete" class="btn btn-primary btn-sm" asp-route-id="@item.Idcan">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

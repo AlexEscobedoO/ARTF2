@@ -6,7 +6,7 @@
 
 <h1>Create</h1>
 
-<h4>Modrf</h4>
+<h4>Crear Modificación</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -33,12 +33,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Desmod" class="control-label"></label>
-                <input asp-for="Desmod" class="form-control" />
+                <textarea asp-for="Desmod" class="form-control" rows="5" maxlength="200" ></textarea>
                 <span asp-validation-for="Desmod" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Obsmod" class="control-label"></label>
-                <input asp-for="Obsmod" class="form-control" />
+                <textarea asp-for="Obsmod" class="form-control" rows="5" maxlength="200" ></textarea>
                 <span asp-validation-for="Obsmod" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -57,14 +57,14 @@
                 <span asp-validation-for="Clavemod" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-info">Volver a la lista</a>
 </div>
 
 @section Scripts {

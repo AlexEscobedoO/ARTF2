@@ -7,95 +7,100 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Registro Nuevo</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NameFichatecDoc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fichatecrect)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Numdocemp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fechadocsol)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecharect)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Desrect)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Obsrect)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NameAcuDoc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Acurect)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Homoclaverect)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fechamodrect)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameFichatecDoc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fichatecrect)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numdocemp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fechadocsol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecharect)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desrect)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Obsrect)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameAcuDoc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Acurect)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Homoclaverect)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fechamodrect)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumacuofsolNavigatorNavigation.Numacuofsol)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Idrect">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Idrect">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Idrect">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div style="height: 500px; overflow-y: auto;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameFichatecDoc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fichatecrect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Numdocemp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fechadocsol)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecharect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Desrect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Obsrect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameAcuDoc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Acurect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Homoclaverect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fechamodrect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameFichatecDoc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fichatecrect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Numdocemp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fechadocsol)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecharect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Desrect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Obsrect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameAcuDoc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Acurect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Homoclaverect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fechamodrect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumacuofsolNavigatorNavigation.Numacuofsol)
+                    </td>
+                    <td>
+                        <div class="btn-group-vertical">
+                            <a asp-action="Edit" class="btn btn-default btn-sm" asp-route-id="@item.Idrect">Editar</a>
+                            <a asp-action="Details" class="btn btn-danger btn-sm" asp-route-id="@item.Idrect">Detalles</a>
+                            <a asp-action="Delete" class="btn btn-primary btn-sm" asp-route-id="@item.Idrect">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

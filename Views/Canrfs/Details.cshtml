@@ -7,7 +7,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Canrf</h4>
+    <h4>Detalles de Cancelación</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -16,42 +16,56 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Fechaofcan)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Juscan)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Juscan)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Obscan)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Obscan)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NameFichaDoc)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NameFichaDoc)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Fichacan)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Fichacan)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Homoclavecan)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Homoclavecan)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Fechacan)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Fechacan)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NumacuofsolNavigatorNavigation)
         </dt>
@@ -61,6 +75,5 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Idcan">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-info">Volver a la lista</a>
 </div>

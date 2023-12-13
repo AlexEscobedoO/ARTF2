@@ -8,7 +8,9 @@ namespace ARTF2.Models
     {
         [Display(Name = "Folio modificación")]
         public int Idmod { get; set; }
+        [Display(Name = "Número acuerdo solicitud")]
         public string? NumacuofsolNavigator { get; set; }
+        [Display(Name = "Nombre documento inscripción")]
         public string NameAcuDoc { get; set; } = null!;
 
         [Display(Name = "Acuerdo modificación")]
@@ -25,6 +27,7 @@ namespace ARTF2.Models
 
         [Display(Name = "Nombre ficha técnica")]
         public string NameFichaTecDoc { get; set; } = null!;
+        [Display(Name = "Ficha técnica")]
         public byte[] Fichatecmod { get; set; } = null!;
 
         [Display(Name = "Homoclave modificación")]

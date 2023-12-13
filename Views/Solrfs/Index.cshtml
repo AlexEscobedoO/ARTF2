@@ -14,6 +14,9 @@
         <thead>
             <tr>
                 <th>
+                    @Html.DisplayNameFor(model => model.Numacuofsol)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Obssol)
                 </th>
                 <th>
@@ -26,6 +29,9 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Numacuofsol)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Obssol)
                     </td>

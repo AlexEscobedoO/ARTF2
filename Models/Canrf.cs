@@ -33,6 +33,7 @@ namespace ARTF2.Models
 
         [Display(Name = "Fecha de cancelación")]
         public DateTime Fechacan { get; set; }
+        [Display(Name = "Número acuerdo solicitud")]
 
         public virtual Solrf? NumacuofsolNavigatorNavigation { get; set; }
         private static byte[] ObtenerValorPredeterminado()

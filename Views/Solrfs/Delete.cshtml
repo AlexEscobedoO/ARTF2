@@ -10,6 +10,14 @@
 <div>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Numacuofsol)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Numacuofsol)
+        </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Obssol)
         </dt>
@@ -28,7 +36,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Numacuofsol" />
-        <input type="submit" value="Delete" class="btn btn-primary" />
+        <input type="submit" value="Eliminar" class="btn btn-primary" />
         <a asp-action="Index" class="btn btn-info">Volver a la lista</a>
     </form>
 </div>

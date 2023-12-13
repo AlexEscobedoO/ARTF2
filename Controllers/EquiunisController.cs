@@ -53,13 +53,13 @@ namespace ARTF2.Controllers
         // GET: Equiunis/Create
         public IActionResult Create()
         {
-            ViewData["CombuequiIdNavigation"] = new SelectList(_context.CombustibleTypes, "Idcomb", "Idcomb");
-            ViewData["ModaequiIdNavigation"] = new SelectList(_context.Modelos, "Idmod", "Idmod");
-            ViewData["MonrentIdNavigation"] = new SelectList(_context.Moneda, "Id", "Id");
+            ViewData["CombuequiIdNavigation"] = new SelectList(_context.CombustibleTypes, "Idcomb", "Description");
+            ViewData["ModaequiIdNavigation"] = new SelectList(_context.Modelos, "Idmod", "Modequi");
+            ViewData["MonrentIdNavigation"] = new SelectList(_context.Moneda, "Id", "Tipomoneda");
             ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol");
-            ViewData["RegiequiIdNavigation"] = new SelectList(_context.RegimenJuridicos, "Id", "Id");
-            ViewData["TipequiIdNavigation"] = new SelectList(_context.EquipoTypes, "IdEqui", "IdEqui");
-            ViewData["UsoequiIdNavigation"] = new SelectList(_context.Usoequis, "Id", "Id");
+            ViewData["RegiequiIdNavigation"] = new SelectList(_context.RegimenJuridicos, "Id", "Regimen");
+            ViewData["TipequiIdNavigation"] = new SelectList(_context.EquipoTypes, "IdEqui", "Description");
+            ViewData["UsoequiIdNavigation"] = new SelectList(_context.Usoequis, "Id", "Usoequi1");
             return View();
         }
 

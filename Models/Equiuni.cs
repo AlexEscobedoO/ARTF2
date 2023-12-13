@@ -8,9 +8,13 @@ namespace ARTF2.Models
     {
         [Display(Name = "Folio equipo")]
         public int Idequi { get; set; }
+        [Display(Name = "Número acuerdo solicitud")]
         public string? NumacuofsolNavigator { get; set; }
+        [Display(Name = "Modelo")]
         public int? ModaequiIdNavigation { get; set; }
+        [Display(Name = "Tipo de equipo")]
         public int? TipequiIdNavigation { get; set; }
+        [Display(Name = "Tipo de combustible")]
         public int? CombuequiIdNavigation { get; set; }
 
         [Display(Name = "Número serie")]
@@ -18,11 +22,14 @@ namespace ARTF2.Models
 
         [Display(Name = "Matricula")]
         public string Matricula { get; set; } = null!;
+        [Display(Name = "Regimen")]
         public int? RegiequiIdNavigation { get; set; }
 
         [Display(Name = "Gravamen")]
         public bool? Graequi { get; set; }
+        [Display(Name = "Uso de equipo")]
         public int? UsoequiIdNavigation { get; set; }
+        [Display(Name = "Fecha construcción")]
         public DateTime? Fcons { get; set; }
 
         [Display(Name = "Número factura")]
@@ -39,7 +46,9 @@ namespace ARTF2.Models
 
         [Display(Name = "Monto renta")]
         public int? Mrent { get; set; }
+        [Display(Name = "Moneda")]
         public int? MonrentIdNavigation { get; set; }
+        [Display(Name = "Observaciones arrendamiento")]
         public string Obsarre { get; set; } = null!;
 
         [Display(Name = "Observaciones gravamen")]
@@ -50,6 +59,7 @@ namespace ARTF2.Models
 
         [Display(Name = "Nombre documento")]
         public string NameFichaDoc { get; set; } = null!;
+        [Display(Name = "Ficha equipo")]
         public byte[]? Fichaequi { get; set; }
 
         [Display(Name = "Fecha requerimiento")]

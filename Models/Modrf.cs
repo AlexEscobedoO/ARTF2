@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace ARTF2.Models
 {
@@ -14,7 +15,7 @@ namespace ARTF2.Models
         public string NameAcuDoc { get; set; } = null!;
 
         [Display(Name = "Acuerdo modificación")]
-        public byte[]? Acumod { get; set; }
+        public byte[]? Acumod { get; set; } = ObtenerValorPredeterminado();
 
         [Display(Name = "Fecha modificación")]
         public DateTime Fechamod { get; set; }
@@ -28,11 +29,17 @@ namespace ARTF2.Models
         [Display(Name = "Nombre ficha técnica")]
         public string NameFichaTecDoc { get; set; } = null!;
         [Display(Name = "Ficha técnica")]
-        public byte[] Fichatecmod { get; set; } = null!;
+        public byte[] Fichatecmod { get; set; } = ObtenerValorPredeterminado();
 
         [Display(Name = "Homoclave modificación")]
         public string Clavemod { get; set; } = null!;
 
         public virtual Solrf? NumacuofsolNavigatorNavigation { get; set; }
+        private static byte[] ObtenerValorPredeterminado()
+        {
+            // Lógica para obtener el valor predeterminado
+            return Encoding.UTF8.GetBytes("Default");
+        }
     }
+
 }

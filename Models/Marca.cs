@@ -11,5 +11,7 @@ namespace ARTF2.Models
 
         [Display(Name = "Razón social marca")]
         public string? RsMarca { get; set; }
+        public virtual ICollection<Equiuni> Equiunis { get; set; }
+
     }
 }

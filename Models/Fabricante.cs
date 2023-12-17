@@ -11,5 +11,7 @@ namespace ARTF2.Models
 
         [Display(Name = "Razón social fabricante")]
         public string Rsfab { get; set; } = null!;
+        public virtual ICollection<Equiuni> Equiunis { get; set; }
+
     }
 }

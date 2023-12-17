@@ -124,6 +124,22 @@
                 <span asp-validation-for="Fecharequi" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="ModaEquiId" class="control-label"></label>
+                <select asp-for="ModaEquiId" class="form-control" asp-items="ViewBag.ModaEquiId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaId" class="control-label"></label>
+                <select asp-for="EmpresaId" class="form-control" asp-items="ViewBag.EmpresaId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FabricanteId" class="control-label"></label>
+                <select asp-for="FabricanteId" class="form-control" asp-items="ViewBag.FabricanteId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarcaId" class="control-label"></label>
+                <select asp-for="MarcaId" class="form-control" asp-items="ViewBag.MarcaId"></select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Guardar" class="btn btn-success" />
             </div>
         </form>

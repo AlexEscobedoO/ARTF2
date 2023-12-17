@@ -79,6 +79,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.UsoequiIdNavigationNavigation.Usoequi1)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModaEqui)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fabricante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -152,10 +164,23 @@
                 @Html.DisplayFor(modelItem => item.UsoequiIdNavigationNavigation.Usoequi1)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.ModaEqui.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa.Rsempre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabricante.Rsfab)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca.RsMarca)
+            </td>
+            <td>
                 <div class="btn-group-vertical">
                     <a asp-action="Edit" class="btn btn-default btn-sm" asp-route-id="@item.Idequi">Editar</a>
                     <a asp-action="Details" class="btn btn-danger btn-sm" asp-route-id="@item.Idequi">Detalles</a>
                     <a asp-action="Delete" class="btn btn-primary btn-sm" asp-route-id="@item.Idequi">Eliminar</a>
+                    <a asp-action="GenerateConsistency" class="btn btn-success btn-sm" asp-route-id="@item.NumacuofsolNavigatorNavigation.Numacuofsol">Generar Constancia</a>
                 </div>                
             </td>
         </tr>

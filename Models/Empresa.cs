@@ -17,5 +17,7 @@ namespace ARTF2.Models
         public int? TipoempreIdNavigation { get; set; }
 
         public virtual EmpreType? TipoempreIdNavigationNavigation { get; set; }
+        public virtual ICollection<Equiuni> Equiunis { get; set; }
+
     }
 }

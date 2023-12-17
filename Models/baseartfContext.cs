@@ -38,6 +38,8 @@ namespace ARTF2.Models
         public virtual DbSet<SolrfDoc> SolrfDocs { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<Usoequi> Usoequis { get; set; } = null!;
+        public virtual DbSet<ModaEqui> ModaEquis { get; set; } = null!;
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -122,7 +124,7 @@ namespace ARTF2.Models
             modelBuilder.Entity<Empresa>(entity =>
             {
                 entity.HasKey(e => e.Idempre)
-                    .HasName("PK__empresa__B647E1406CB406E6");
+                    .HasName("PK__empresa__B647E140A43B0789");
 
                 entity.ToTable("empresa", "Catalogs");
 
@@ -161,13 +163,17 @@ namespace ARTF2.Models
             modelBuilder.Entity<Equiuni>(entity =>
             {
                 entity.HasKey(e => e.Idequi)
-                    .HasName("PK__equiuni__C74D42341E7598DF");
+                    .HasName("PK__equiuni__C74D423413367851");
 
                 entity.ToTable("equiuni", "Artf");
 
                 entity.Property(e => e.Idequi).HasColumnName("idequi");
 
                 entity.Property(e => e.CombuequiIdNavigation).HasColumnName("combuequiIdNavigation");
+
+                entity.Property(e => e.EmpresaId).HasColumnName("empresaId");
+
+                entity.Property(e => e.FabricanteId).HasColumnName("fabricanteId");
 
                 entity.Property(e => e.Fcons)
                     .HasColumnType("date")
@@ -185,10 +191,14 @@ namespace ARTF2.Models
 
                 entity.Property(e => e.Graequi).HasColumnName("graequi");
 
+                entity.Property(e => e.MarcaId).HasColumnName("marcaId");
+
                 entity.Property(e => e.Matricula)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("matricula");
+
+                entity.Property(e => e.ModaEquiId).HasColumnName("modaEquiId");
 
                 entity.Property(e => e.ModaequiIdNavigation).HasColumnName("modaequiIdNavigation");
 
@@ -241,43 +251,63 @@ namespace ARTF2.Models
                 entity.HasOne(d => d.CombuequiIdNavigationNavigation)
                     .WithMany(p => p.Equiunis)
                     .HasForeignKey(d => d.CombuequiIdNavigation)
-                    .HasConstraintName("FK__equiuni__combueq__02084FDA");
+                    .HasConstraintName("FK__equiuni__combueq__73BA3083");
+
+                entity.HasOne(d => d.Empresa)
+                    .WithMany(p => p.Equiunis)
+                    .HasForeignKey(d => d.EmpresaId)
+                    .HasConstraintName("FK__equiuni__empresa__7B5B524B");
+
+                entity.HasOne(d => d.Fabricante)
+                    .WithMany(p => p.Equiunis)
+                    .HasForeignKey(d => d.FabricanteId)
+                    .HasConstraintName("FK__equiuni__fabrica__7A672E12");
+
+                entity.HasOne(d => d.Marca)
+                    .WithMany(p => p.Equiunis)
+                    .HasForeignKey(d => d.MarcaId)
+                    .HasConstraintName("FK__equiuni__marcaId__797309D9");
+
+                entity.HasOne(d => d.ModaEqui)
+                    .WithMany(p => p.Equiunis)
+                    .HasForeignKey(d => d.ModaEquiId)
+                    .HasConstraintName("FK__equiuni__modaEqu__787EE5A0");
 
                 entity.HasOne(d => d.ModaequiIdNavigationNavigation)
                     .WithMany(p => p.Equiunis)
                     .HasForeignKey(d => d.ModaequiIdNavigation)
-                    .HasConstraintName("FK__equiuni__fechare__00200768");
+                    .HasConstraintName("FK__equiuni__empresa__71D1E811");
 
                 entity.HasOne(d => d.MonrentIdNavigationNavigation)
                     .WithMany(p => p.Equiunis)
                     .HasForeignKey(d => d.MonrentIdNavigation)
-                    .HasConstraintName("FK__equiuni__monrent__04E4BC85");
+                    .HasConstraintName("FK__equiuni__monrent__76969D2E");
 
                 entity.HasOne(d => d.NumacuofsolNavigatorNavigation)
                     .WithMany(p => p.Equiunis)
                     .HasForeignKey(d => d.NumacuofsolNavigator)
-                    .HasConstraintName("FK__equiuni__numacuo__05D8E0BE");
+                    .HasConstraintName("FK__equiuni__numacuo__778AC167");
 
                 entity.HasOne(d => d.RegiequiIdNavigationNavigation)
                     .WithMany(p => p.Equiunis)
                     .HasForeignKey(d => d.RegiequiIdNavigation)
-                    .HasConstraintName("FK__equiuni__regiequ__02FC7413");
+                    .HasConstraintName("FK__equiuni__regiequ__74AE54BC");
 
                 entity.HasOne(d => d.TipequiIdNavigationNavigation)
                     .WithMany(p => p.Equiunis)
                     .HasForeignKey(d => d.TipequiIdNavigation)
-                    .HasConstraintName("FK__equiuni__tipequi__01142BA1");
+                    .HasConstraintName("FK__equiuni__tipequi__72C60C4A");
 
                 entity.HasOne(d => d.UsoequiIdNavigationNavigation)
                     .WithMany(p => p.Equiunis)
                     .HasForeignKey(d => d.UsoequiIdNavigation)
-                    .HasConstraintName("FK__equiuni__usoequi__03F0984C");
+                    .HasConstraintName("FK__equiuni__usoequi__75A278F5");
             });
 
             modelBuilder.Entity<Fabricante>(entity =>
             {
                 entity.HasKey(e => e.Idfab)
-                    .HasName("PK__fabrican__0180CDBD636277A5");
+                    .HasName("PK__fabrican__0180CDBD0CC41299");
 
                 entity.ToTable("fabricante", "Catalogs");
 
@@ -1066,6 +1096,13 @@ namespace ARTF2.Models
                 entity.Property(e => e.Usoequi1)
                     .HasMaxLength(50)
                     .HasColumnName("usoequi");
+            });
+
+            modelBuilder.Entity<ModaEqui>(entity =>
+            {
+                entity.ToTable("ModaEqui", "Catalogs");
+
+                entity.Property(e => e.Description).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

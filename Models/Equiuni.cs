@@ -64,8 +64,24 @@ namespace ARTF2.Models
 
         [Display(Name = "Fecha requerimiento")]
         public DateTime? Fecharequi { get; set; }
+        [Display(Name = "Modelo Equipo")]
+        public int? ModaEquiId { get; set; }
+        [Display(Name = "Marca")]
+        public int? MarcaId { get; set; }
+        [Display(Name = "Fabricante")]
+        public int? FabricanteId { get; set; }
+        [Display(Name = "Usuario")]
+        public int? EmpresaId { get; set; }
 
         public virtual CombustibleType? CombuequiIdNavigationNavigation { get; set; }
+        [Display(Name ="Usuario")]
+        public virtual Empresa? Empresa { get; set; }
+        [Display(Name ="Fabricante")]
+        public virtual Fabricante? Fabricante { get; set; }
+        [Display(Name ="Marca")]
+        public virtual Marca? Marca { get; set; }
+        [Display(Name ="Modelo Equipo")]
+        public virtual ModaEqui? ModaEqui { get; set; }
         public virtual Modelo? ModaequiIdNavigationNavigation { get; set; }
         public virtual Monedum? MonrentIdNavigationNavigation { get; set; }
         public virtual Solrf? NumacuofsolNavigatorNavigation { get; set; }

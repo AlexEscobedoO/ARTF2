@@ -20,9 +20,9 @@ namespace ARTF2.Controllers
         }
 
         // GET: Modrfs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string id)
         {
-            var baseartfContext = _context.Modrves.Include(m => m.NumacuofsolNavigatorNavigation);
+            var baseartfContext = _context.Modrves.Include(m => m.NumacuofsolNavigatorNavigation).Where(m => m.NumacuofsolNavigator == id);
             return View(await baseartfContext.ToListAsync());
         }
 

@@ -5,6 +5,7 @@
 }
 
 <h1>Index</h1>
+<h1>Registro Inscripción</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-success">Registro Nuevo</a>
@@ -46,9 +47,14 @@
                     </td>
                     <td>
                         <div class="btn-group-vertical">
-                            <a asp-action="Edit" class="btn btn-default btn-sm" asp-route-id="@item.Idins">Editar</a>
+                            <!--<a asp-action="Edit" class="btn btn-default btn-sm" asp-route-id="@item.Idins">Editar</a>-->
                             <a asp-action="Details" class="btn btn-danger btn-sm" asp-route-id="@item.Idins">Detalles</a>
-                            <a asp-action="Delete" class="btn btn-primary btn-sm" asp-route-id="@item.Idins">Eliminar</a>
+                            <!--<a asp-action="Delete" class="btn btn-primary btn-sm" asp-route-id="@item.Idins">Eliminar</a>-->
+                            <a asp-controller="Rectrfs" asp-action="Index" class="btn btn-default btn-sm" asp-route-id="@item.NumacuofsolNavigatorNavigation.Numacuofsol">Rectificación</a>
+                            <a asp-controller="Modrfs" asp-action="Index" class="btn btn-danger btn-sm" asp-route-id="@item.NumacuofsolNavigatorNavigation.Numacuofsol">Modificación</a>
+                            <a asp-controller="Canrfs" asp-action="Createview" class="btn btn-primary btn-sm">Cancelación</a>
+
+
                         </div>                        
                     </td>
                 </tr>

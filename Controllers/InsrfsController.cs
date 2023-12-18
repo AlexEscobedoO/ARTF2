@@ -47,7 +47,15 @@ namespace ARTF2.Controllers
         // GET: Insrfs/Create
         public IActionResult Create()
         {
-            ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol");
+            //ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol");
+            //return View();
+
+            // Supongamos que deseas filtrar Solrves donde alguna propiedad cumple con cierta condición
+            var filteredSolrves = _context.Solrves
+                .Where(solrve => _context.Equiunis.Any(ot => ot.NumacuofsolNavigator == solrve.Numacuofsol))
+                .ToList();
+
+            ViewData["NumacuofsolNavigator"] = new SelectList(filteredSolrves, "Numacuofsol", "Numacuofsol");
             return View();
         }
 

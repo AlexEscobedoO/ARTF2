@@ -46,10 +46,10 @@ namespace ARTF2.Controllers
         }
 
         // GET: Canrfs/Create
-        public IActionResult Create()
+        public IActionResult Createview()
         {
             ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol");
-            return View();
+            return View("Create");
         }
 
         // POST: Canrfs/Create

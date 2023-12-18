@@ -20,9 +20,9 @@ namespace ARTF2.Controllers
         }
 
         // GET: Rectrfs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string id)
         {
-            var baseartfContext = _context.Rectrves.Include(r => r.NumacuofsolNavigatorNavigation);
+            var baseartfContext = _context.Rectrves.Include(r => r.NumacuofsolNavigatorNavigation).Where(r => r.NumacuofsolNavigator == id);
             return View(await baseartfContext.ToListAsync());
         }
 

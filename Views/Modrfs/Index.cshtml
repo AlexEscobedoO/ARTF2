@@ -5,10 +5,15 @@
 }
 
 <h1>Index</h1>
+<h1>Registro Modificación</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-success">Registro Nuevo</a>
-</p>
+@if (Model.Any() == false)
+{
+    <p>
+        <a asp-action="Create" class="btn btn-success">Registro Nuevo</a>
+    </p>
+}
+
 <div style="height: 500px; overflow-y: auto;">
     <table class="table">
         <thead>
@@ -78,7 +83,7 @@
                         <div class="btn-group-vertical">
                             <a asp-action="Edit" class="btn btn-default btn-sm" asp-route-id="@item.Idmod">Editar</a>
                             <a asp-action="Details" class="btn btn-danger btn-sm" asp-route-id="@item.Idmod">Detalles</a>
-                            <a asp-action="Delete" class="btn btn-primary btn-sm" asp-route-id="@item.Idmod">Eliminar</a>
+                            <!--<a asp-action="Delete" class="btn btn-primary btn-sm" asp-route-id="@item.Idmod">Eliminar</a>-->
                             <a asp-action="GenerateConsistency" class="btn btn-success btn-sm" asp-route-id="@item.NumacuofsolNavigatorNavigation.Numacuofsol">Generar Constancia</a>
 
                         </div>                        

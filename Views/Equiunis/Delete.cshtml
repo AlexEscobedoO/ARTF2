@@ -221,6 +221,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Idequi" />
         <input type="submit" value="Eliminar" class="btn btn-primary" />
-        <a asp-action="Index" class="btn btn-info">Volver a la lista</a>
+        <a asp-action="Index" asp-route-id="@Model.NumacuofsolNavigatorNavigation.Numacuofsol" class="btn btn-info">Volver a la lista</a>
     </form>
 </div>

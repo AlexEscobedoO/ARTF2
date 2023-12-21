@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ARTF2.Models;
+using ARTF2.Helpers.Constancias;
 
 namespace ARTF2.Controllers
 {
@@ -170,6 +171,44 @@ namespace ARTF2.Controllers
         private bool InsrfExists(int id)
         {
           return (_context.Insrves?.Any(e => e.Idins == id)).GetValueOrDefault();
+        }
+
+        public async Task<IActionResult> GenerateConsistency(string Id)
+        {
+            if (Id == null || _context.Equiunis == null)
+            {
+                return NotFound();
+            }
+
+            var equipo = await _context.Equiunis
+                .Include(i => i.NumacuofsolNavigatorNavigation)
+                .Include(i => i.CombuequiIdNavigationNavigation)
+                .Include(i => i.ModaequiIdNavigationNavigation)
+                .Include(i => i.MonrentIdNavigationNavigation)
+                .Include(i => i.RegiequiIdNavigationNavigation)
+                .Include(i => i.TipequiIdNavigationNavigation)
+                .Include(i => i.UsoequiIdNavigationNavigation)
+                .Include(i => i.Marca)
+                .Include(i => i.Empresa)
+                .Include(i => i.Fabricante)
+                .Include(i => i.ModaEqui)
+                .FirstOrDefaultAsync(m => m.NumacuofsolNavigatorNavigation.Numacuofsol == Id);
+
+
+            ConstanciaInscripcion constanciaInscripcion = new ConstanciaInscripcion();
+            var result = constanciaInscripcion.Generar(equipo);
+
+            // Verificar si el resultado es de tipo FileContentResult o FileStreamResult
+            if (result is FileContentResult fileContentResult)
+            {
+                // Puedes realizar acciones adicionales si es necesario
+            }
+            else if (result is FileStreamResult fileStreamResult)
+            {
+                // Puedes realizar acciones adicionales si es necesario
+            }
+            return result;
+
         }
     }
 }

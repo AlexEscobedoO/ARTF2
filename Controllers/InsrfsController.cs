@@ -22,7 +22,7 @@ namespace ARTF2.Controllers
         // GET: Insrfs
         public async Task<IActionResult> Index()
         {
-            var baseartfContext = _context.Insrves.Include(i => i.NumacuofsolNavigatorNavigation);
+            var baseartfContext = _context.Insrves.Include(i => i.NumacuofsolNavigatorNavigation).Where(x => x.Cancelled != true);
             return View(await baseartfContext.ToListAsync());
         }
 
@@ -53,7 +53,8 @@ namespace ARTF2.Controllers
 
             // Supongamos que deseas filtrar Solrves donde alguna propiedad cumple con cierta condición
             var filteredSolrves = _context.Solrves
-                .Where(solrve => _context.Equiunis.Any(ot => ot.NumacuofsolNavigator == solrve.Numacuofsol))
+                .Include(x => x.Insrves)
+                .Where(solrve => _context.Equiunis.Any(ot => ot.NumacuofsolNavigator == solrve.Numacuofsol) && solrve.Insrves.All(i => i.Cancelled != true))
                 .ToList();
 
             ViewData["NumacuofsolNavigator"] = new SelectList(filteredSolrves, "Numacuofsol", "Numacuofsol");

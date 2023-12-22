@@ -23,7 +23,7 @@ namespace ARTF2.Controllers
         // GET: Equiunis
         public async Task<IActionResult> Index(string id)
         {
-            var baseartfContext = _context.Equiunis.Include(e => e.CombuequiIdNavigationNavigation).Include(e => e.ModaequiIdNavigationNavigation).Include(e => e.MonrentIdNavigationNavigation).Include(e => e.NumacuofsolNavigatorNavigation).Include(e => e.RegiequiIdNavigationNavigation).Include(e => e.TipequiIdNavigationNavigation).Include(e => e.UsoequiIdNavigationNavigation).Include(e => e.Empresa).Include(e => e.Fabricante).Include(e => e.Marca).Include(e => e.ModaEqui).Where(e => e.NumacuofsolNavigator == id);
+          var baseartfContext = _context.Equiunis.Include(e => e.CombuequiIdNavigationNavigation).Include(e => e.ModaequiIdNavigationNavigation).Include(e => e.MonrentIdNavigationNavigation).Include(e => e.NumacuofsolNavigatorNavigation).Include(e => e.RegiequiIdNavigationNavigation).Include(e => e.TipequiIdNavigationNavigation).Include(e => e.UsoequiIdNavigationNavigation).Include(e => e.Empresa).Include(e => e.Fabricante).Include(e => e.Marca).Include(e => e.ModaEqui).Where(e => e.NumacuofsolNavigator == id);
             return View(await baseartfContext.ToListAsync());
         }
 
@@ -59,10 +59,16 @@ namespace ARTF2.Controllers
         // GET: Equiunis/Create
         public IActionResult Create()
         {
+            var filteredSolrves = _context.Solrves
+                                    .Include(x => x.Insrves)
+                                    .Where(solrve => solrve.Insrves.All(i => i.Cancelled != true))
+                                    .ToList();
+
+
             ViewData["CombuequiIdNavigation"] = new SelectList(_context.CombustibleTypes, "Idcomb", "Description");
             ViewData["ModaequiIdNavigation"] = new SelectList(_context.Modelos, "Idmod", "Modequi");
             ViewData["MonrentIdNavigation"] = new SelectList(_context.Moneda, "Id", "Tipomoneda");
-            ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol");
+            ViewData["NumacuofsolNavigator"] = new SelectList(filteredSolrves, "Numacuofsol", "Numacuofsol");
             ViewData["RegiequiIdNavigation"] = new SelectList(_context.RegimenJuridicos, "Id", "Regimen");
             ViewData["TipequiIdNavigation"] = new SelectList(_context.EquipoTypes, "IdEqui", "Description");
             ViewData["UsoequiIdNavigation"] = new SelectList(_context.Usoequis, "Id", "Usoequi1");

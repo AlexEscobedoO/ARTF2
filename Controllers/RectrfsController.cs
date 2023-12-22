@@ -22,7 +22,7 @@ namespace ARTF2.Controllers
         // GET: Rectrfs
         public async Task<IActionResult> Index(string id)
         {
-            var baseartfContext = _context.Rectrves.Include(r => r.NumacuofsolNavigatorNavigation).Where(r => r.NumacuofsolNavigator == id);
+            var baseartfContext = _context.Rectrves.Include(r => r.NumacuofsolNavigatorNavigation).Where(r => r.NumacuofsolNavigator == id && r.Active == true);
             return View(await baseartfContext.ToListAsync());
         }
 
@@ -48,8 +48,14 @@ namespace ARTF2.Controllers
         // GET: Rectrfs/Create
         public IActionResult Create()
         {
-            ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol");
+            var filteredSolrves = _context.Solrves
+            .Include(x => x.Insrves)
+            .Where(solrve => _context.Equiunis.Any(ot => ot.NumacuofsolNavigator == solrve.Numacuofsol) && solrve.Insrves.All(i => i.Cancelled != true))
+            .ToList();
+
+            ViewData["NumacuofsolNavigator"] = new SelectList(filteredSolrves, "Numacuofsol", "Numacuofsol");
             return View();
+
         }
 
         // POST: Rectrfs/Create
@@ -63,7 +69,16 @@ namespace ARTF2.Controllers
             {
                 _context.Add(rectrf);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+
+                var mod =  _context.Modrves.FirstOrDefault(x => x.NumacuofsolNavigator == rectrf.NumacuofsolNavigator && x.Active == true);
+                if (mod != null)
+                {
+                    mod.Active = false;
+                    await _context.SaveChangesAsync();
+                }
+
+                return RedirectToAction(nameof(Index), new { id = rectrf.NumacuofsolNavigator });
             }
             ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol", rectrf.NumacuofsolNavigator);
             return View(rectrf);
@@ -82,7 +97,13 @@ namespace ARTF2.Controllers
             {
                 return NotFound();
             }
-            ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol", rectrf.NumacuofsolNavigator);
+
+            var filteredSolrves = _context.Solrves
+            .Include(x => x.Insrves)
+            .Where(solrve => _context.Equiunis.Any(ot => ot.NumacuofsolNavigator == solrve.Numacuofsol) && solrve.Insrves.All(i => i.Cancelled != true))
+            .ToList();
+
+            ViewData["NumacuofsolNavigator"] = new SelectList(filteredSolrves, "Numacuofsol", "Numacuofsol", rectrf.NumacuofsolNavigator);
             return View(rectrf);
         }
 
@@ -116,7 +137,7 @@ namespace ARTF2.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { id = rectrf.NumacuofsolNavigator });
             }
             ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol", rectrf.NumacuofsolNavigator);
             return View(rectrf);
@@ -157,7 +178,7 @@ namespace ARTF2.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { id = rectrf.NumacuofsolNavigator });
         }
 
         private bool RectrfExists(int id)

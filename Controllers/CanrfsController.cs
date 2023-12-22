@@ -48,7 +48,11 @@ namespace ARTF2.Controllers
         // GET: Canrfs/Create
         public IActionResult Createview()
         {
-            ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol");
+            var filteredSolrves = _context.Solrves
+            .Include(x => x.Insrves)
+            .Where(solrve => solrve.Insrves.All(i => i.Cancelled != true))
+            .ToList();
+            ViewData["NumacuofsolNavigator"] = new SelectList(filteredSolrves, "Numacuofsol", "Numacuofsol");
             return View("Create");
         }
 
@@ -61,6 +65,12 @@ namespace ARTF2.Controllers
         {
             if (ModelState.IsValid)
             {
+                var inscrip = await _context.Insrves.FirstOrDefaultAsync(x => x.NumacuofsolNavigator == canrf.NumacuofsolNavigator);
+                if (inscrip != null)
+                {
+                    inscrip.Cancelled = true;
+                }
+
                 _context.Add(canrf);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

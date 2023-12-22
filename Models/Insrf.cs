@@ -20,6 +20,7 @@ namespace ARTF2.Models
 
         [Display(Name = "Homoclave inscripción")]
         public string Homoclaveins { get; set; } = null!;
+        public bool? Cancelled { get; set; }
 
         public virtual Solrf? NumacuofsolNavigatorNavigation { get; set; }
     }

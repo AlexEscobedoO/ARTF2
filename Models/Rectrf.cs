@@ -35,6 +35,8 @@ namespace ARTF2.Models
         public string? Homoclaverect { get; set; }
         [Display(Name = "Fecha rectificación")]
         public DateTime Fechamodrect { get; set; }
+        public bool? Active { get; set; }
+
 
         public virtual Solrf? NumacuofsolNavigatorNavigation { get; set; }
         private static byte[] ObtenerValorPredeterminado()

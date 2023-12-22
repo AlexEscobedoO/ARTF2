@@ -21,9 +21,12 @@ namespace ARTF2.Controllers
         // GET: Solrfs
         public async Task<IActionResult> Index()
         {
-              return _context.Solrves != null ? 
-                          View(await _context.Solrves.ToListAsync()) :
-                          Problem("Entity set 'baseartfContext.Solrves'  is null.");
+            var response = _context.Solrves
+            .Include(x => x.Insrves)
+            .Where(x => x.Insrves.All(i => i.Cancelled != true))
+            .ToList();
+
+            return View(response);
         }
 
         // GET: Solrfs/Details/5

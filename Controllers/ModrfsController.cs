@@ -22,7 +22,7 @@ namespace ARTF2.Controllers
         // GET: Modrfs
         public async Task<IActionResult> Index(string id)
         {
-            var baseartfContext = _context.Modrves.Include(m => m.NumacuofsolNavigatorNavigation).Where(m => m.NumacuofsolNavigator == id);
+            var baseartfContext = _context.Modrves.Include(m => m.NumacuofsolNavigatorNavigation).Where(m => m.NumacuofsolNavigator == id && m.Active == true);
             return View(await baseartfContext.ToListAsync());
         }
 
@@ -48,8 +48,13 @@ namespace ARTF2.Controllers
         // GET: Modrfs/Create
         public IActionResult Create()
         {
-            ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol");
+            var filteredSolrves = _context.Solrves
+            .Include(x => x.Insrves)
+            .Where(solrve => _context.Equiunis.Any(ot => ot.NumacuofsolNavigator == solrve.Numacuofsol) && solrve.Insrves.All(i => i.Cancelled != true))
+            .ToList();
+            ViewData["NumacuofsolNavigator"] = new SelectList(filteredSolrves, "Numacuofsol", "Numacuofsol");
             return View();
+
         }
 
         // POST: Modrfs/Create
@@ -63,7 +68,15 @@ namespace ARTF2.Controllers
             {
                 _context.Add(modrf);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                var rec =  _context.Rectrves.FirstOrDefault(x => x.NumacuofsolNavigator == modrf.NumacuofsolNavigator && x.Active == true);
+                if (rec != null)
+                {
+                    rec.Active = false;
+                    await _context.SaveChangesAsync();
+                }
+
+                return RedirectToAction(nameof(Index), new { id = modrf.NumacuofsolNavigator });
             }
             ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol", modrf.NumacuofsolNavigator);
             return View(modrf);
@@ -82,7 +95,13 @@ namespace ARTF2.Controllers
             {
                 return NotFound();
             }
-            ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol", modrf.NumacuofsolNavigator);
+
+            var filteredSolrves = _context.Solrves
+            .Include(x => x.Insrves)
+            .Where(solrve => _context.Equiunis.Any(ot => ot.NumacuofsolNavigator == solrve.Numacuofsol) && solrve.Insrves.All(i => i.Cancelled != true))
+            .ToList();
+
+            ViewData["NumacuofsolNavigator"] = new SelectList(filteredSolrves, "Numacuofsol", "Numacuofsol", modrf.NumacuofsolNavigator);
             return View(modrf);
         }
 
@@ -116,7 +135,7 @@ namespace ARTF2.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { id = modrf.NumacuofsolNavigator });
             }
             ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol", modrf.NumacuofsolNavigator);
             return View(modrf);
@@ -157,7 +176,7 @@ namespace ARTF2.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { id = modrf.NumacuofsolNavigator });
         }
 
         private bool ModrfExists(int id)

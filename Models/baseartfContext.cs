@@ -322,11 +322,15 @@ namespace ARTF2.Models
             modelBuilder.Entity<Insrf>(entity =>
             {
                 entity.HasKey(e => e.Idins)
-                    .HasName("PK__insrf__047FB555AC1122F9");
+                    .HasName("PK__insrf__047FB55537AB565A");
 
                 entity.ToTable("insrf", "Artf");
 
                 entity.Property(e => e.Idins).HasColumnName("idins");
+
+                entity.Property(e => e.Cancelled)
+                    .HasColumnName("cancelled")
+                    .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Fecapins)
                     .HasColumnType("date")
@@ -350,8 +354,9 @@ namespace ARTF2.Models
                 entity.HasOne(d => d.NumacuofsolNavigatorNavigation)
                     .WithMany(p => p.Insrves)
                     .HasForeignKey(d => d.NumacuofsolNavigator)
-                    .HasConstraintName("FK__insrf__homoclave__6477ECF3");
+                    .HasConstraintName("FK__insrf__homoclave__66603565");
             });
+
 
             modelBuilder.Entity<Marca>(entity =>
             {
@@ -380,11 +385,15 @@ namespace ARTF2.Models
             modelBuilder.Entity<Modrf>(entity =>
             {
                 entity.HasKey(e => e.Idmod)
-                    .HasName("PK__modrf__0577AC63DD03FF42");
+                    .HasName("PK__modrf__0577AC637C9E5046");
 
                 entity.ToTable("modrf", "Artf");
 
                 entity.Property(e => e.Idmod).HasColumnName("idmod");
+
+                entity.Property(e => e.Active)
+                    .HasColumnName("active")
+                    .HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.Acumod).HasColumnName("acumod");
 
@@ -425,7 +434,7 @@ namespace ARTF2.Models
                 entity.HasOne(d => d.NumacuofsolNavigatorNavigation)
                     .WithMany(p => p.Modrves)
                     .HasForeignKey(d => d.NumacuofsolNavigator)
-                    .HasConstraintName("FK__modrf__clavemod__6A30C649");
+                    .HasConstraintName("FK__modrf__clavemod__6C190EBB");
             });
 
             modelBuilder.Entity<Monedum>(entity =>
@@ -933,11 +942,15 @@ namespace ARTF2.Models
             modelBuilder.Entity<Rectrf>(entity =>
             {
                 entity.HasKey(e => e.Idrect)
-                    .HasName("PK__rectrf__EEB277A3E57810E5");
+                    .HasName("PK__rectrf__EEB277A372405D52");
 
                 entity.ToTable("rectrf", "Artf");
 
                 entity.Property(e => e.Idrect).HasColumnName("idrect");
+
+                entity.Property(e => e.Active)
+                    .HasColumnName("active")
+                    .HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.Acurect).HasColumnName("acurect");
 
@@ -991,7 +1004,7 @@ namespace ARTF2.Models
                 entity.HasOne(d => d.NumacuofsolNavigatorNavigation)
                     .WithMany(p => p.Rectrves)
                     .HasForeignKey(d => d.NumacuofsolNavigator)
-                    .HasConstraintName("FK__rectrf__fechamod__6754599E");
+                    .HasConstraintName("FK__rectrf__fechamod__693CA210");
             });
 
             modelBuilder.Entity<RegimenJuridico>(entity =>

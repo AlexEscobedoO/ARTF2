@@ -33,6 +33,8 @@ namespace ARTF2.Models
 
         [Display(Name = "Homoclave modificación")]
         public string Clavemod { get; set; } = null!;
+        public bool? Active { get; set; }
+
 
         public virtual Solrf? NumacuofsolNavigatorNavigation { get; set; }
         private static byte[] ObtenerValorPredeterminado()

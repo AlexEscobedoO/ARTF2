@@ -121,13 +121,13 @@ namespace ARTF2.Controllers
             {
                 return NotFound();
             }
-            ViewData["CombuequiIdNavigation"] = new SelectList(_context.CombustibleTypes, "Idcomb", "Idcomb", equiuni.CombuequiIdNavigation);
-            ViewData["ModaequiIdNavigation"] = new SelectList(_context.Modelos, "Idmod", "Idmod", equiuni.ModaequiIdNavigation);
-            ViewData["MonrentIdNavigation"] = new SelectList(_context.Moneda, "Id", "Id", equiuni.MonrentIdNavigation);
+            ViewData["CombuequiIdNavigation"] = new SelectList(_context.CombustibleTypes, "Idcomb", "Description", equiuni.CombuequiIdNavigation);
+            ViewData["ModaequiIdNavigation"] = new SelectList(_context.Modelos, "Idmod", "Modequi", equiuni.ModaequiIdNavigation);
+            ViewData["MonrentIdNavigation"] = new SelectList(_context.Moneda, "Id", "Tipomoneda", equiuni.MonrentIdNavigation);
             ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol", equiuni.NumacuofsolNavigator);
-            ViewData["RegiequiIdNavigation"] = new SelectList(_context.RegimenJuridicos, "Id", "Id", equiuni.RegiequiIdNavigation);
-            ViewData["TipequiIdNavigation"] = new SelectList(_context.EquipoTypes, "IdEqui", "IdEqui", equiuni.TipequiIdNavigation);
-            ViewData["UsoequiIdNavigation"] = new SelectList(_context.Usoequis, "Id", "Id", equiuni.UsoequiIdNavigation);
+            ViewData["RegiequiIdNavigation"] = new SelectList(_context.RegimenJuridicos, "Id", "Regimen", equiuni.RegiequiIdNavigation);
+            ViewData["TipequiIdNavigation"] = new SelectList(_context.EquipoTypes, "IdEqui", "Description", equiuni.TipequiIdNavigation);
+            ViewData["UsoequiIdNavigation"] = new SelectList(_context.Usoequis, "Id", "Usoequi1", equiuni.UsoequiIdNavigation);
             ViewData["EmpresaId"] = new SelectList(_context.Empresas, "Idempre", "Rsempre", equiuni.EmpresaId);
             ViewData["FabricanteId"] = new SelectList(_context.Fabricantes, "Idfab", "Rsfab", equiuni.FabricanteId);
             ViewData["MarcaId"] = new SelectList(_context.Marcas, "Id", "RsMarca", equiuni.MarcaId);

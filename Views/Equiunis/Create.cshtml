@@ -85,8 +85,49 @@
             </script>
             <div class="form-group">
                 <label asp-for="RegiequiIdNavigation" class="control-label"></label>
-                <select asp-for="RegiequiIdNavigation" class ="form-control" asp-items="ViewBag.RegiequiIdNavigation"></select>
+                <select asp-for="RegiequiIdNavigation" class="form-control" asp-items="ViewBag.RegiequiIdNavigation" id="SelectRegimen"></select>
             </div>
+            <script>
+                $(document).ready(function () {
+                    // Oculta el input Numero de factura
+                    $('#labelNoFact').hide();
+                    $('#inputNoFact').hide();
+
+                    // Asocia un evento de cambio al selectRegimen
+                    $('#SelectRegimen').change(function () {
+                        console.log("Cambio detectado")
+                        // Si el valor seleccionado es 'Propio', muestra el input de Numero de factura, de lo contrario, ocúltalo
+                        console.log($(this).val());
+                        if ($(this).val() === '2') {
+                            $('#labelNoFact').show();
+                            $('#inputNoFact').show();
+                            $('#labelTipoContrato').hide();
+                            $('#inputTipoContrato').hide();
+                            $('#labelFechaContrato').hide();
+                            $('#inputFechaContrato').hide();
+                            $('#labelVigencia').hide();
+                            $('#inputVigencia').hide();
+                            $('#labelMonto').hide();
+                            $('#inputMonto').hide();
+                            $('#labelMoneda').hide();
+                            $('#selectMoneda').hide();
+                        } else {
+                            $('#labelNoFact').hide();
+                            $('#inputNoFact').hide();
+                            $('#labelTipoContrato').show();
+                            $('#inputTipoContrato').show();
+                            $('#labelFechaContrato').show();
+                            $('#inputFechaContrato').show();
+                            $('#labelVigencia').show();
+                            $('#inputVigencia').show();
+                            $('#labelMonto').show();
+                            $('#inputMonto').show();
+                            $('#labelMoneda').show();
+                            $('#selectMoneda').show();
+                        }
+                    });
+                });
+            </script>
             <div class="form-group">
                 <label asp-for="Graequi" class="control-label"></label>
                 <select asp-for="Graequi" class="form-control" >
@@ -104,33 +145,33 @@
                 <span asp-validation-for="Fcons" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Nofact" class="control-label"></label>
-                <input asp-for="Nofact" class="form-control" />
+                <label asp-for="Nofact" class="control-label" id="labelNoFact"></label>
+                <input asp-for="Nofact" class="form-control" id="inputNoFact"/>
                 <span asp-validation-for="Nofact" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tcontra" class="control-label"></label>
-                <input asp-for="Tcontra" class="form-control" />
+                <label asp-for="Tcontra" class="control-label" id="labelTipoContrato"></label>
+                <input asp-for="Tcontra" class="form-control" id="inputTipoContrato" />
                 <span asp-validation-for="Tcontra" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Fcontra" class="control-label"></label>
-                <input asp-for="Fcontra" class="form-control" />
+                <label asp-for="Fcontra" class="control-label" id="labelFechaContrato"></label>
+                <input asp-for="Fcontra" class="form-control" id="inputFechaContrato"/>
                 <span asp-validation-for="Fcontra" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Vcontra" class="control-label"></label>
-                <input asp-for="Vcontra" class="form-control" />
+                <label asp-for="Vcontra" class="control-label" id="labelVigencia"></label>
+                <input asp-for="Vcontra" class="form-control" id="inputVigencia"/>
                 <span asp-validation-for="Vcontra" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Mrent" class="control-label"></label>
-                <input asp-for="Mrent" class="form-control" />
+                <label asp-for="Mrent" class="control-label" id="labelMonto"></label>
+                <input asp-for="Mrent" class="form-control" id="inputMonto"/>
                 <span asp-validation-for="Mrent" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MonrentIdNavigation" class="control-label"></label>
-                <select asp-for="MonrentIdNavigation" class ="form-control" asp-items="ViewBag.MonrentIdNavigation"></select>
+                <label asp-for="MonrentIdNavigation" class="control-label" id="labelMoneda"></label>
+                <select asp-for="MonrentIdNavigation" class ="form-control" asp-items="ViewBag.MonrentIdNavigation" id="selectMoneda"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Obsarre" class="control-label"></label>

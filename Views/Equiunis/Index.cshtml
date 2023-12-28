@@ -105,7 +105,7 @@
                 @Html.DisplayFor(modelItem => item.Matricula)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Graequi)
+                @(item.Graequi.HasValue ? (item.Graequi.Value ? "Si" : "No") : "No")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Fcons)

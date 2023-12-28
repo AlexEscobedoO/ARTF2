@@ -30,7 +30,7 @@
             @Html.DisplayNameFor(model => model.Graequi)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Graequi)
+            @(Model.Graequi.HasValue ? (Model.Graequi.Value ? "Si" : "No") : "No")
         </dd>
     </dl>
     <dl class="row">

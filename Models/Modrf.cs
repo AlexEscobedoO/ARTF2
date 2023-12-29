@@ -32,7 +32,7 @@ namespace ARTF2.Models
         public byte[] Fichatecmod { get; set; } = ObtenerValorPredeterminado();
 
         [Display(Name = "Homoclave modificación")]
-        public string Clavemod { get; set; } = null!;
+        public string Clavemod { get; set; } = "Homo";
         public bool? Active { get; set; }
 
 

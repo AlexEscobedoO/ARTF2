@@ -46,7 +46,8 @@
                         data: { Nserie: numeroSerie },
                         success: function (result) {
                             var mensaje = result.existe ? "Número de no serie disponible" : "Número de serie disponible";
-                            $("#mensajeDisponibilidad").text(mensaje);
+                            var color = result.existe ? "red" : "green";
+                            $("#mensajeDisponibilidad").text(mensaje).css("color", color);
                             $("#btnGuardar").prop("disabled", result.existe);
                             $("#btnGuardar").prop("enable", !result.existe);
                         },
@@ -72,7 +73,8 @@
                         data: { Matricula: matricula },
                         success: function (result) {
                             var mensaje = result.existe ? "Matricula no serie disponible" : "Matricula disponible";
-                            $("#mensajeDisponibilidadMatricula").text(mensaje);
+                            var color = result.existe ? "red" : "green";
+                            $("#mensajeDisponibilidadMatricula").text(mensaje).css("color", color);
                             $("#btnGuardar").prop("disabled", result.existe);
                             $("#btnGuardar").prop("enable", !result.existe);
 
@@ -111,6 +113,8 @@
                             $('#inputMonto').hide();
                             $('#labelMoneda').hide();
                             $('#selectMoneda').hide();
+                            $('#labelObservacionesArrendamiento').hide();
+                            $('#textObservacionesArrendamiento').hide();
                         } else {
                             $('#labelNoFact').hide();
                             $('#inputNoFact').hide();
@@ -124,6 +128,8 @@
                             $('#inputMonto').show();
                             $('#labelMoneda').show();
                             $('#selectMoneda').show();
+                            $('#labelObservacionesArrendamiento').show();
+                            $('#textObservacionesArrendamiento').show();
                         }
                     });
                 });
@@ -174,8 +180,8 @@
                 <select asp-for="MonrentIdNavigation" class ="form-control" asp-items="ViewBag.MonrentIdNavigation" id="selectMoneda"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Obsarre" class="control-label"></label>
-                <textarea asp-for="Obsarre" class="form-control" rows="5" maxlength="200"></textarea>
+                <label asp-for="Obsarre" class="control-label" id="labelObservacionesArrendamiento"></label>
+                <textarea asp-for="Obsarre" class="form-control" rows="5" maxlength="200" id="textObservacionesArrendamiento"></textarea>
                 <span asp-validation-for="Obsarre" class="text-danger"></span>
             </div>
             <div class="form-group">

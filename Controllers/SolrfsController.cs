@@ -161,5 +161,12 @@ namespace ARTF2.Controllers
         {
           return (_context.Solrves?.Any(e => e.Numacuofsol == id)).GetValueOrDefault();
         }
+
+        [HttpPost]
+        public JsonResult VerificarNumeroAcuerdo(string NoAcuerdo)
+        {
+            bool existeEnBaseDeDatos = _context.Solrves.Any(m => m.Numacuofsol == NoAcuerdo);
+            return Json(new { existe = existeEnBaseDeDatos });
+        }
     }
 }

@@ -72,10 +72,83 @@ namespace ARTF2.Controllers
             {
                 _context.Add(insrf);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                var equipoInfo = await _context.Equiunis
+                .Include(i => i.NumacuofsolNavigatorNavigation)
+                .Include(i => i.CombuequiIdNavigationNavigation)
+                .Include(i => i.ModaequiIdNavigationNavigation)
+                .Include(i => i.MonrentIdNavigationNavigation)
+                .Include(i => i.RegiequiIdNavigationNavigation)
+                .Include(i => i.TipequiIdNavigationNavigation)
+                .Include(i => i.UsoequiIdNavigationNavigation)
+                .Include(i => i.Marca)
+                .Include(i => i.Empresa)
+                .Include(i => i.Fabricante)
+                .Include(i => i.ModaEqui)
+                .FirstOrDefaultAsync(m => m.NumacuofsolNavigatorNavigation.Numacuofsol == insrf.NumacuofsolNavigator);
+
+
+                var homo = await GenerateHomoclave(insrf.Idins, equipoInfo);
+
+                if (homo.Length == 14)
+                {
+                    insrf.Homoclaveins = homo;
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    insrf.Cancelled = true;
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
             ViewData["NumacuofsolNavigator"] = new SelectList(_context.Solrves, "Numacuofsol", "Numacuofsol", insrf.NumacuofsolNavigator);
             return View(insrf);
+        }
+
+        private async Task<string>  GenerateHomoclave(int idInscripcion, Equiuni equipo)
+        {
+            string HomoclaveGenerada = "RFM";
+            try
+            {
+                if (equipo.ModaEqui.Id == 1)
+                {
+                    HomoclaveGenerada += "EA";
+                }
+                else
+                {
+                    HomoclaveGenerada += "ET";
+                }
+
+                switch (equipo.Empresa.TipoempreIdNavigation)
+                {
+                    case 1:
+                        HomoclaveGenerada += "AS";
+                        break;
+                    case 2:
+                        HomoclaveGenerada += "PA";
+                        break;
+                    case 3:
+                        HomoclaveGenerada += "CO";
+                        break;
+                    case 4:
+                        HomoclaveGenerada += "PE";
+                        break;
+                }
+
+                HomoclaveGenerada += "IN";
+
+                string idString = idInscripcion.ToString("D5");
+
+                HomoclaveGenerada += idString;
+
+                return HomoclaveGenerada;
+            }
+            catch (Exception )
+            {
+                return HomoclaveGenerada;
+            }
         }
 
         // GET: Insrfs/Edit/5
@@ -174,7 +247,7 @@ namespace ARTF2.Controllers
           return (_context.Insrves?.Any(e => e.Idins == id)).GetValueOrDefault();
         }
 
-        public async Task<IActionResult> GenerateConsistency(string Id)
+        public async Task<IActionResult> GenerateConsistency(string Id, string Homoclave)
         {
             if (Id == null || _context.Equiunis == null)
             {
@@ -197,7 +270,7 @@ namespace ARTF2.Controllers
 
 
             ConstanciaInscripcion constanciaInscripcion = new ConstanciaInscripcion();
-            var result = constanciaInscripcion.Generar(equipo);
+            var result = constanciaInscripcion.Generar(equipo, Homoclave);
 
             // Verificar si el resultado es de tipo FileContentResult o FileStreamResult
             if (result is FileContentResult fileContentResult)

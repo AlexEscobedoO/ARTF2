@@ -11,7 +11,7 @@ namespace artf_MVC.Helper.Constancias
 {
     public class ConstanciaCancelacion
     {
-        public IActionResult Generar(Equiuni equiuni)
+        public IActionResult Generar(Equiuni equiuni, string homoclave)
         {
             Canrf equiCan = null;
             equiCan = equiuni.NumacuofsolNavigatorNavigation.Canrves?.FirstOrDefault();
@@ -291,7 +291,7 @@ namespace artf_MVC.Helper.Constancias
                 table4.AddCell(emptyCellTable4);
 
                 // ROW (RESTANTE)
-                PdfPCell cell1Table4 = new PdfPCell(CreateCustomSubTable4_1());
+                PdfPCell cell1Table4 = new PdfPCell(CreateCustomSubTable4_1(homoclave, equiuni.Fecharequi.ToString()));
                 cell1Table4.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER; // Quital el borde izquierdo y derecho
                 table4.AddCell(cell1Table4);
 
@@ -1443,9 +1443,11 @@ namespace artf_MVC.Helper.Constancias
                 subTable.SpacingAfter = 9f;
                 return subTable;
             }
-            static PdfPTable CreateCustomSubTable4_1()
+            static PdfPTable CreateCustomSubTable4_1(string Homoclave, string FechaEquipo)
             {
-                
+                FechaEquipo = FechaEquipo.Replace("12:00:00 a. m.", "");
+                FechaEquipo = FechaEquipo.Replace("00:00:00", "");
+                FechaEquipo = FechaEquipo.Replace("12:00:00 AM", "");
 
                 PdfPTable subTable = new PdfPTable(1);
                 float[] columnWidths = new float[] { 100f }; // Porcentajes de ancho para cada columna
@@ -1462,7 +1464,7 @@ namespace artf_MVC.Helper.Constancias
                 cell.PaddingBottom = 5f;
                 cell.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
 
-                cell.Phrase = new Phrase("Con folio No. RFMEACOIN-023-MD001-CA se hace constar que con fecha 19 de abril de 2022 queda CANCELADO el Equipo Ferroviario descrito en el presente documento, del Registro Ferroviario Mexicano de conformidad a lo estipulado en el artículo 209, fracción III, del Reglamento del Servicio Ferroviario.", new Font(Font.FontFamily.HELVETICA, 9f) { Color = BaseColor.BLACK });
+                cell.Phrase = new Phrase($"Con folio No. {Homoclave} se hace constar que con fecha {FechaEquipo} queda CANCELADO el Equipo Ferroviario descrito en el presente documento, del Registro Ferroviario Mexicano de conformidad a lo estipulado en el artículo 209, fracción III, del Reglamento del Servicio Ferroviario.", new Font(Font.FontFamily.HELVETICA, 9f) { Color = BaseColor.BLACK });
                 subTable.AddCell(cell);
 
                 return subTable;

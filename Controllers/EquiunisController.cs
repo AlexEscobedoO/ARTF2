@@ -88,6 +88,10 @@ namespace ARTF2.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (equiuni.Fcontra == null)
+                {
+                    equiuni.Fcontra = DateTime.UtcNow;
+                }
                 //Equiuni equipo = new Equiuni();
                 //equipo = equiuni;
                 _context.Add(equiuni);

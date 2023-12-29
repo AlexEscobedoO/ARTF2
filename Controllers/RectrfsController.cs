@@ -70,6 +70,19 @@ namespace ARTF2.Controllers
                 _context.Add(rectrf);
                 await _context.SaveChangesAsync();
 
+                var homo = await _context.Insrves.FirstOrDefaultAsync(x => x.NumacuofsolNavigator == rectrf.NumacuofsolNavigator);
+
+                string idString = rectrf.Idrect.ToString("D3");
+
+                homo.Homoclaveins = homo.Homoclaveins.Substring(0, 14);
+
+
+                homo.Homoclaveins += "-RE";
+                homo.Homoclaveins += idString;
+
+                rectrf.Homoclaverect = homo.Homoclaveins;
+                await _context.SaveChangesAsync();
+
 
                 var mod =  _context.Modrves.FirstOrDefault(x => x.NumacuofsolNavigator == rectrf.NumacuofsolNavigator && x.Active == true);
                 if (mod != null)
@@ -186,7 +199,7 @@ namespace ARTF2.Controllers
           return (_context.Rectrves?.Any(e => e.Idrect == id)).GetValueOrDefault();
         }
 
-        public async Task<IActionResult> GenerateConsistency(string Id)
+        public async Task<IActionResult> GenerateConsistency(string Id, string Homoclave)
         {
             if (Id == null || _context.Equiunis == null)
             {
@@ -211,7 +224,7 @@ namespace ARTF2.Controllers
 
 
             CostanciaCancelacion constanciaInscripcion = new CostanciaCancelacion();
-            var result = constanciaInscripcion.Generar(equipo, "RECTIFICACIÓN");
+            var result = constanciaInscripcion.Generar(equipo, "RECTIFICACIÓN" , Homoclave);
 
             // Verificar si el resultado es de tipo FileContentResult o FileStreamResult
             if (result is FileContentResult fileContentResult)

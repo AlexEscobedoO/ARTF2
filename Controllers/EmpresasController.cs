@@ -47,7 +47,7 @@ namespace ARTF2.Controllers
         // GET: Empresas/Create
         public IActionResult Create()
         {
-            ViewData["TipoempreIdNavigation"] = new SelectList(_context.EmpreTypes, "Id", "Id");
+            ViewData["TipoempreIdNavigation"] = new SelectList(_context.EmpreTypes, "Id", "Type");
             return View();
         }
 
@@ -81,7 +81,7 @@ namespace ARTF2.Controllers
             {
                 return NotFound();
             }
-            ViewData["TipoempreIdNavigation"] = new SelectList(_context.EmpreTypes, "Id", "Id", empresa.TipoempreIdNavigation);
+            ViewData["TipoempreIdNavigation"] = new SelectList(_context.EmpreTypes, "Id", "Type", empresa.TipoempreIdNavigation);
             return View(empresa);
         }
 

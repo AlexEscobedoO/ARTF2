@@ -19,7 +19,7 @@ namespace ARTF2.Models
         public DateTime? Fecapins { get; set; }
 
         [Display(Name = "Homoclave inscripción")]
-        public string Homoclaveins { get; set; } = null!;
+        public string Homoclaveins { get; set; } = "Homo";
         public bool? Cancelled { get; set; }
 
         public virtual Solrf? NumacuofsolNavigatorNavigation { get; set; }

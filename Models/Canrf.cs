@@ -23,7 +23,7 @@ namespace ARTF2.Models
         public string Obscan { get; set; } = null!;
 
         [Display(Name = "Nombre del documento")]
-        public string NameFichaDoc { get; set; } = null!;
+        public string NameFichaDoc { get; set; } = "DocumentDefault";
 
         [Display(Name = "Ficha")]
         public byte[] Fichacan { get; set; } = ObtenerValorPredeterminado();

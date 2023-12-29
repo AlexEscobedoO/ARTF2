@@ -14,7 +14,7 @@ namespace artf_MVC.Helper.Constancias
 {
     public class CostanciaCancelacion
     {
-         public IActionResult Generar(Equiuni equiuni, string Title)
+         public IActionResult Generar(Equiuni equiuni, string Title, string homoclave)
         {
             Modrf equiMod = null;
             Rectrf equiRec = null;
@@ -343,7 +343,7 @@ namespace artf_MVC.Helper.Constancias
                 table4.AddCell(emptyCellTable4);
 
                 // ROW (RESTANTE)
-                PdfPCell cell1Table4 = new PdfPCell(CreateCustomSubTable4_1(Title));
+                PdfPCell cell1Table4 = new PdfPCell(CreateCustomSubTable4_1(Title, homoclave, equiuni.Fecharequi.ToString()));
                 cell1Table4.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER; // Quital el borde izquierdo y derecho
                 table4.AddCell(cell1Table4);
 
@@ -1515,17 +1515,20 @@ namespace artf_MVC.Helper.Constancias
                 subTable.SpacingAfter = 9f;
                 return subTable;
             }
-            static PdfPTable CreateCustomSubTable4_1(string Type)
+            static PdfPTable CreateCustomSubTable4_1(string Type, string HomoClave, string fechaEquipo)
             {
                 string Text;
+                fechaEquipo = fechaEquipo.Replace("12:00:00 a. m.", "");
+                fechaEquipo = fechaEquipo.Replace("00:00:00", "");
+                fechaEquipo = fechaEquipo.Replace("12:00:00 AM", "");
 
                 if (Type == "MODIFICACIÓN")
                 {
-                    Text = "Con folio No. RFMETCOIN639-MD003 se hace constar que con fecha 14 de abril de 2022 queda modificado el asiento de inscripción del Equipo Ferroviario descrito en el presente documento en el Registro Ferroviario Mexicano de conformidad a lo estipulado en los artículos 204, fracción III y 207, del Reglamento del Servicio Ferroviario.";
+                    Text = $"Con folio No. {HomoClave} se hace constar que con fecha {fechaEquipo} queda modificado el asiento de inscripción del Equipo Ferroviario descrito en el presente documento en el Registro Ferroviario Mexicano de conformidad a lo estipulado en los artículos 204, fracción III y 207, del Reglamento del Servicio Ferroviario.";
                 }
                 else
                 {
-                    Text = "Con folio No. RFMETCOIN639-RE003 se hace constar que con fecha 14 de abril de 2022 queda rectificado el asiento de inscripción del Equipo Ferroviario descrito en el presente documento en el Registro Ferroviario Mexicano de conformidad a lo estipulado en los artículos 204, fracción III, 207 y 208, del Reglamento del Servicio Ferroviario.";
+                    Text = $"Con folio No. {HomoClave} se hace constar que con fecha {fechaEquipo} queda rectificado el asiento de inscripción del Equipo Ferroviario descrito en el presente documento en el Registro Ferroviario Mexicano de conformidad a lo estipulado en los artículos 204, fracción III, 207 y 208, del Reglamento del Servicio Ferroviario.";
                 }
 
                 PdfPTable subTable = new PdfPTable(1);

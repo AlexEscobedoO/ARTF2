@@ -12,7 +12,7 @@ namespace ARTF2.Helpers.Constancias
 {
     public class ConstanciaInscripcion
     {
-        public IActionResult Generar(Equiuni equiuni)
+        public IActionResult Generar(Equiuni equiuni, string homoclave)
         {
             using (var pdfStream = new MemoryStream())
             {
@@ -238,7 +238,7 @@ namespace ARTF2.Helpers.Constancias
 
 
                 // ROW (CON FOLIO)
-                PdfPCell cell1Table3 = new PdfPCell(CreateCustomSubTable3_1(equiuni.Fecharequi.ToString()));
+                PdfPCell cell1Table3 = new PdfPCell(CreateCustomSubTable3_1(equiuni.Fecharequi.ToString(), homoclave));
                 cell1Table3.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER; // Quital el borde izquierdo y derecho
                 table3.AddCell(cell1Table3);
                 // ROW (SELLO DIGITAL)
@@ -1228,7 +1228,7 @@ namespace ARTF2.Helpers.Constancias
             /*************************************************************************FIN TABLA 2*************************************************************************/
             /*************************************************************************INICIO TABLA 3*************************************************************************/
             /*************************************************************************FIN TABLA 3*************************************************************************/
-            static PdfPTable CreateCustomSubTable3_1(string fechaEquipo)
+            static PdfPTable CreateCustomSubTable3_1(string fechaEquipo, string HomoClave)
             {
                 fechaEquipo = fechaEquipo.Replace("12:00:00 a. m.", "");
                 fechaEquipo = fechaEquipo.Replace("00:00:00", "");
@@ -1257,7 +1257,7 @@ namespace ARTF2.Helpers.Constancias
                 cell.PaddingBottom = 5f;
                 cell.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
 
-                cell.Phrase = new Phrase($"Con folio No. RFMETCOIN543 se hace constar que con fecha {fechaEquipo} queda inscrito el Equipo descrito en el presente documento y sus especificaciones técnicas mostradas al reverso en el Registro Ferroviario Mexicano de conformidad a lo estipulado en el artículo 204, fracción III del Reglamento del Servicio Ferroviario.", new Font(Font.FontFamily.HELVETICA, 9f) { Color = BaseColor.BLACK });
+                cell.Phrase = new Phrase($"Con folio No. {HomoClave} se hace constar que con fecha {fechaEquipo} queda inscrito el Equipo descrito en el presente documento y sus especificaciones técnicas mostradas al reverso en el Registro Ferroviario Mexicano de conformidad a lo estipulado en el artículo 204, fracción III del Reglamento del Servicio Ferroviario.", new Font(Font.FontFamily.HELVETICA, 9f) { Color = BaseColor.BLACK });
                 subTable.AddCell(cell);
 
                 return subTable;
